@@ -1,0 +1,37 @@
+﻿@model ECommerceProject.Models.Category
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <link href="~/css/editCategory.css" rel="stylesheet" type="text/css" />
+</head>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <span id="CategoryNameText">Kategori Adı</span>
+                <input asp-for="Name" class="form-control" id="CategoryNameInput"/>
+                <i class="bi bi-tags-fill"></i>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <i class="bi bi-arrow-repeat"></i>
+                <input type="submit" value="Kategoriyi Güncelle" class="btn btn-primary" id="EditCategory"/>
+            </div>
+            <div>
+                <i class="bi bi-reply-fill"></i>
+                <a asp-action="Index" id="BackToCategoryList">Kategori Listesine Dön</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
