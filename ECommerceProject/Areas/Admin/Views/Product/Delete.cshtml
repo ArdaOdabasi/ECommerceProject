@@ -1,0 +1,75 @@
+﻿@model ECommerceProject.Models.Product
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <link href="~/css/Product/deleteProduct.css" rel="stylesheet" />
+</head>
+
+<p id="Text">Bu ürünü silmek istediğinizden emin misiniz?</p>
+
+    <dl class="row">
+         <dt class = "col-sm-2">
+            Resim
+        </dt>
+        <dd class = "col-sm-10">
+            <div class="col-md-4">
+                @if (Model.Image == null)
+                {
+                    <img src="~/images/GoruntuYok.jpg" />
+                }
+                else
+                {
+                    <img src="@Model.Image" width="100" height="100" />
+                }
+            </div>
+        </dd>
+        <dt class = "col-sm-2">
+            Başlık
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            Kategori
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Category.Name)
+        </dd class>
+        <dt class = "col-sm-2">
+            Açıklama
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            Fiyat
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            Ana Sayfa
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsHome)
+        </dd>
+        <dt class = "col-sm-2">
+            Stok
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsStock)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Kategoriyi Sil" id="DeleteProduct" />
+        <i class="bi bi-trash"></i>
+        <a asp-action="Index" id="BackToProductList">Ürün Listesine Dön</a>
+        <i class="bi bi-reply-fill"></i>
+    </form>
+</div>

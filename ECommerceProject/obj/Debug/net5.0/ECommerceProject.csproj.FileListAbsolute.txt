@@ -442,6 +442,10 @@ C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razo
 C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
 C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\Category\Create.cshtml.g.cs
 C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\Category\Delete.cshtml.g.cs
-C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\Category\Details.cshtml.g.cs
 C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\Category\Edit.cshtml.g.cs
 C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\Category\Index.cshtml.g.cs
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\Product\Create.cshtml.g.cs
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\Product\Delete.cshtml.g.cs
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\Product\Details.cshtml.g.cs
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\Product\Edit.cshtml.g.cs
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\Product\Index.cshtml.g.cs

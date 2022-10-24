@@ -1,0 +1,64 @@
+﻿#Text {
+    color: black;
+    font-weight: bold;
+}
+
+#CategoryNameText {
+    color: #333232;
+    font-weight: bold;
+}
+
+#DeleteCategory {
+    width: 170px;
+    height: 34px;
+    background-color: #333232;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    padding-left: 15px;
+    border-radius: 50px;
+    border: 0px;
+}
+
+#DeleteCategory:hover{
+    background-color: black;
+    color: white;
+}
+
+.bi-trash {
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    position: absolute;
+    margin-left: -155px;
+    margin-top: 6px;
+}
+
+#BackToCategoryList:link, #BackToCategoryList:visited  {
+    display: inline-block;
+    background-color: #85108a;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    margin-left: 5px;
+    padding-top: 5px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+}
+
+#BackToCategoryList:hover, #BackToCategoryList:active  {
+    background-color: black;
+    color: white;
+}
+
+.bi-reply-fill {
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    position: absolute;
+    margin-left: -201px;
+    margin-top: 5px;
+}

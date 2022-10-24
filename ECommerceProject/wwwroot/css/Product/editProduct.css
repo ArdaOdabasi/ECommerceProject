@@ -1,0 +1,142 @@
+﻿#ProductTitleInput {
+    box-shadow: 2px 2px;
+    padding-left: 35px;
+    color: black;
+}
+
+#ProductDescriptionInput {
+    box-shadow: 2px 2px;
+    padding-left: 35px;
+    color: black;
+}
+
+#ProductPriceInput {
+    box-shadow: 2px 2px;
+    padding-left: 35px;
+    color: black;
+}
+
+#ProductImageInput {
+    box-shadow: 2px 2px;
+}
+
+#ProductCategorySelect {
+    box-shadow: 2px 2px;
+}
+
+#ProductTitleText {
+    color: #333232;
+    font-weight: bold;
+}
+
+#ProductDescriptionText {
+    color: #333232;
+    font-weight: bold;
+}
+
+#ProductPriceText {
+    color: #333232;
+    font-weight: bold;
+}
+
+#ProductImageText {
+    color: #333232;
+    font-weight: bold;
+}
+
+#ProductHomeText {
+    color: #333232;
+    font-weight: bold;
+}
+
+#ProductStockText {
+    color: #333232;
+    font-weight: bold;
+}
+
+#ProductCategoryText {
+    color: #333232;
+    font-weight: bold;
+}
+
+.bi-bag-fill {
+    color: #333232;
+    font-size: 20px;
+    position: absolute;
+    margin-left: 10px;
+    margin-top: -34px
+}
+
+.bi-pencil-square {
+    color: #333232;
+    font-size: 20px;
+    position: absolute;
+    margin-left: 10px;
+    margin-top: -34px
+}
+
+.bi-tags {
+    color: #333232;
+    font-size: 20px;
+    position: absolute;
+    margin-left: 10px;
+    margin-top: -34px
+}
+
+#BackToProductList:link, #BackToCategoryList:visited {
+    display: inline-block;
+    background-color: #177d83;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    margin-left: 50px;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+}
+
+#BackToProductList:hover, #BackToCategoryList:active {
+    background-color: black;
+    color: white;
+}
+
+.bi-reply-fill {
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    position: absolute;
+    margin-left: 60px;
+    margin-top: 13px;
+}
+
+#AddNewProduct {
+    width: 190px;
+    height: 34px;
+    background-color: #403f3f;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 50px;
+    margin-left: 50px;
+    padding-right: 0px;
+    padding-left: 7px;
+    border: 0px;
+}
+
+    #AddNewProduct:hover {
+        background-color: black;
+        color: white;
+    }
+
+.bi-plus {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    position: absolute;
+    margin-left: 63px;
+    margin-top: 1px;
+}
