@@ -1,0 +1,29 @@
+﻿input {
+    margin-top: 10px;
+    box-shadow: 2px 2px;
+    padding-left: 35px;
+    color: black;
+}
+
+h4{
+    color: purple;
+}
+
+.bi-person-plus-fill{
+    color: white;
+    margin-right: 5px;
+}
+
+#SubmitButton {
+    background-color: purple;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+}
+
+#SubmitButton:hover{
+    background-color: black;
+    color: white;
+}

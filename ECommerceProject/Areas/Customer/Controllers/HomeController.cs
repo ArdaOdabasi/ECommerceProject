@@ -1,4 +1,5 @@
-﻿using ECommerceProject.Models;
+﻿using ECommerceProject.Data;
+using ECommerceProject.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -14,15 +15,18 @@ namespace ECommerceProject.Areas.Customer.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _applicationDbContext;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext applicationDbContext)
         {
             _logger = logger;
+            _applicationDbContext = applicationDbContext;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var Products = _applicationDbContext.Products.Where(p=>p.IsHome).ToList();
+            return View(Products);
         }
 
         public IActionResult Privacy()
