@@ -1,9 +1,11 @@
 using ECommerceProject.Data;
+using ECommerceProject.Email;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,9 +34,28 @@ namespace ECommerceProject
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddControllersWithViews();
+            services.AddSingleton<IEmailSender, EmailSender>();
+            services.Configure<EmailOptions>(Configuration);
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services.AddRazorPages();
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = $"/Identity/Account/Login";
+                options.LogoutPath = $"/Identity/Account/Logout";
+                options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+            });
+            services.AddAuthentication().AddFacebook(options =>
+            {
+                options.AppId = "3067823606841054";
+                options.AppSecret = "6a73456cfd3813c1d869a669b4d07a49";
+            });
+            services.AddAuthentication().AddGoogle(options =>
+            {
+                options.ClientId = "282159936658-cuqtmp9hoftb0fcjal2hkmtbdb3oi2ev.apps.googleusercontent.com";
+                options.ClientSecret = "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";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,54 @@
+﻿#myTable {
+    text-align: center;
+}
+
+#UserListTitle {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.bi-person-plus-fill{
+    margin-right: 5px;
+}
+
+#AddUser:link, #AddUser:visited {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-right: 12px;
+    padding-bottom: 5px;
+    padding-left: 12px;
+    margin-top: 10px;
+    margin-right: 2px;
+    margin-bottom: 10px;
+}
+
+#AddUser:hover, #AddUser:active {
+    background-color: #464444;
+    color: white;
+}
+
+#DeleteLink:link, #DeleteLink:visited {
+    display: inline-block;
+    background-color: #e5c309;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    padding-top: 5px;
+    padding-right: 12px;
+    padding-bottom: 5px;
+    padding-left: 12px;
+}
+
+#DeleteLink:hover, #DeleteLink:active{
+    background-color: black;
+    color: white;
+}

@@ -5,12 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using ECommerceProject.Data;
+using ECommerceProject.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 
@@ -23,17 +26,23 @@ namespace ECommerceProject.Areas.Identity.Pages.Account
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly ApplicationDbContext _applicationDbContext;
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            RoleManager<IdentityRole> roleManager,
+            ApplicationDbContext applicationDbContext)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _roleManager = roleManager;
+            _applicationDbContext = applicationDbContext;
         }
 
         [BindProperty]
@@ -70,11 +79,23 @@ namespace ECommerceProject.Areas.Identity.Pages.Account
             public string PostCode { get; set; }
             public string PhoneNumber { get; set; }
             public string Role { get; set; }
+            public IEnumerable<SelectListItem> RoleList { get; set; }
+
         }
 
         public async Task OnGetAsync(string returnUrl = null)
         {
             ReturnUrl = returnUrl;
+            Input = new InputModel()
+            {
+                RoleList = _roleManager.Roles.Where(i => i.Name != RoleOrderStatusSessionOperations.Role_Person)
+                .Select(x => x.Name)
+                .Select(u => new SelectListItem
+                {
+                    Text = u,
+                    Value = u
+                })
+            };
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
@@ -84,11 +105,49 @@ namespace ECommerceProject.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
+                var user = new ApplicationUser
+                {
+                    Name = Input.Name,
+                    Surname = Input.Surname,
+                    Address = Input.Address,
+                    City = Input.City,
+                    District = Input.District,
+                    PostCode = Input.PostCode,
+                    Role = Input.Role,
+                    PhoneNumber = Input.PhoneNumber,
+                    Email = Input.Email,
+                    UserName = Input.Email,
+                };
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+
+                    if (!await _roleManager.RoleExistsAsync(RoleOrderStatusSessionOperations.Role_Admin))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole(RoleOrderStatusSessionOperations.Role_Admin));
+                    }
+
+                    if (!await _roleManager.RoleExistsAsync(RoleOrderStatusSessionOperations.Role_User))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole(RoleOrderStatusSessionOperations.Role_User));
+                    }
+
+                    if (!await _roleManager.RoleExistsAsync(RoleOrderStatusSessionOperations.Role_Person))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole(RoleOrderStatusSessionOperations.Role_Person));
+                    }
+
+                    if (user.Role == null)
+                    {
+                        await _userManager.AddToRoleAsync(user, RoleOrderStatusSessionOperations.Role_User);
+                    }
+
+                    else
+                    {
+                        await _userManager.AddToRoleAsync(user, user.Role);
+                    }
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
@@ -107,8 +166,16 @@ namespace ECommerceProject.Areas.Identity.Pages.Account
                     }
                     else
                     {
-                        await _signInManager.SignInAsync(user, isPersistent: false);
-                        return LocalRedirect(returnUrl);
+                        if (user.Role == null)
+                        {
+                            await _signInManager.SignInAsync(user, isPersistent: false);
+                            return LocalRedirect(returnUrl);
+                        }
+
+                        else
+                        {
+                            return RedirectToAction("Index", "User", new { Area = "Admin" });
+                        }
                     }
                 }
                 foreach (var error in result.Errors)

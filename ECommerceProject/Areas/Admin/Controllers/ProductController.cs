@@ -9,10 +9,12 @@ using ECommerceProject.Data;
 using ECommerceProject.Models;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ECommerceProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = RoleOrderStatusSessionOperations.Role_Admin)]
     public class ProductController : Controller
     {
         private readonly ApplicationDbContext _context;

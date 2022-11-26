@@ -19,9 +19,44 @@
         <form asp-page-handler="Confirmation" asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Input.Email"></label>
-                <input asp-for="Input.Email" class="form-control" />
+
+                <input asp-for="Input.Name" class="form-control" placeholder="Ad" />
+                <span asp-validation-for="Input.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <input asp-for="Input.Surname" class="form-control" placeholder="Soyad" />
+                <span asp-validation-for="Input.Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <input asp-for="Input.Email" class="form-control" placeholder="Email" />
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Telefon Numarası" />
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <input asp-for="Input.City" class="form-control" placeholder="Şehir" />
+                <span asp-validation-for="Input.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <input asp-for="Input.District" class="form-control" placeholder="Semt" />
+                <span asp-validation-for="Input.District" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <input asp-for="Input.PostCode" class="form-control" placeholder="Posta Kodu" />
+                <span asp-validation-for="Input.PostCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <input asp-for="Input.Address" class="form-control" placeholder="Adres" />
+                <span asp-validation-for="Input.Address" class="text-danger"></span>
             </div>
             <button type="submit" class="btn btn-primary">Register</button>
         </form>

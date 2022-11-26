@@ -1,5 +1,6 @@
 ﻿@page
 @model RegisterModel
+@using ECommerceProject.Models
 @{
     ViewData["Title"] = "Register";
 }
@@ -9,6 +10,9 @@
 </head>
 
 <div class="row">
+    <div class="col-md-4">
+
+    </div>
     <div class="col-md-4">
         <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <h4 style="text-align:center">Kayıt Ol</h4>
@@ -64,13 +68,17 @@
                 <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Şifre Tekrar" />
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
+            @if (User.IsInRole(RoleOrderStatusSessionOperations.Role_Admin))
+            {
+                <div class="form-group">
+                    @Html.DropDownListFor(m => m.Input.Role, Model.Input.RoleList, "Rol Seç", new { @class = "form-control" })
+                </div>
+            }
             <button type="submit" class="form-control" id="SubmitButton"><i class="bi bi-person-plus-fill"></i>Kayıt Ol</button>
         </form>
-    </div>
-    <div class="col-md-6 col-md-offset-2">
+        <br />
         <section>
-            <h4>Use another service to register.</h4>
-            <hr />
+
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
                 {
@@ -85,11 +93,9 @@
                 {
                     <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
                         <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                }
+                            <p>                          
+                                <button type="submit" name="provider" value="@Model.ExternalLogins[0].Name" title="@Model.ExternalLogins[0].DisplayName hesabınızı kullanarak giriş yapın" id="FacebookButton"><i class="bi bi-facebook"></i></button>     
+                                <button type="submit" name="provider" value="@Model.ExternalLogins[1].Name" title="@Model.ExternalLogins[1].DisplayName hesabınızı kullanarak giriş yapın" id="GoogleButton"><i class="bi bi-google"></i></button>
                             </p>
                         </div>
                     </form>

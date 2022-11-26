@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using ECommerceProject.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -51,6 +52,15 @@ namespace ECommerceProject.Areas.Identity.Pages.Account
             [Required]
             [EmailAddress]
             public string Email { get; set; }
+            [Required]
+            public string Name { get; set; }
+            [Required]
+            public string Surname { get; set; }
+            public string Address { get; set; }
+            public string City { get; set; }
+            public string District { get; set; }
+            public string PostCode { get; set; }
+            public string PhoneNumber { get; set; }
         }
 
         public IActionResult OnGetAsync()
@@ -121,7 +131,18 @@ namespace ECommerceProject.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
+                var user = new ApplicationUser
+                {
+                    Name = Input.Name,
+                    Surname = Input.Surname,
+                    Address = Input.Address,
+                    City = Input.City,
+                    District = Input.District,
+                    PostCode = Input.PostCode,
+                    PhoneNumber = Input.PhoneNumber,
+                    Email = Input.Email,
+                    UserName = Input.Email,
+                };
 
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
@@ -129,6 +150,7 @@ namespace ECommerceProject.Areas.Identity.Pages.Account
                     result = await _userManager.AddLoginAsync(user, info);
                     if (result.Succeeded)
                     {
+                        await _userManager.AddToRoleAsync(user, RoleOrderStatusSessionOperations.Role_Person);
                         _logger.LogInformation("User created an account using {Name} provider.", info.LoginProvider);
 
                         var userId = await _userManager.GetUserIdAsync(user);
