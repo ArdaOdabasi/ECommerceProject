@@ -1,0 +1,95 @@
+﻿@model ECommerceProject.Models.ShoppingCard
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <link href="~/css/Customer/Home/homeDetails.css" rel="stylesheet" type="text/css" />
+</head>
+
+<div class="container">
+    <br />
+    <div class="row">
+        <form method="post">
+            <input hidden asp-for="ProductId" />
+            <div class="card mb-12" id="Card">
+                <div class="row g-0">
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-3">
+                        <img src="@Model.Product.Image" class="img-fluid rounded-start" alt="..." style="height: 200px">
+                    </div>
+                    <div class="col-md-5">
+                        <div class="card-body">
+                            <dl class="row">
+                                <dt class="col-sm-3">
+                                    <span id="">Başlık</span>
+                                </dt>
+                                <dd class="col-sm-9">
+                                    @Model.Product.Title
+                                </dd>
+                                <dt class="col-sm-3">
+                                    <span id="">Açıklama</span>
+                                </dt>
+                                <dd class="col-sm-9">
+                                    @Model.Product.Description
+                                </dd>
+                                <dt class="col-sm-3">
+                                    <span id="">Stok</span>
+                                </dt>
+                                <dd class="col-sm-9">
+                                    @if (Model.Product.IsStock)
+                                    {
+                                        <label>Var <i class="bi bi-check-circle-fill"></i></label>
+                                    }
+                                    else
+                                    {
+                                        <label>Yok <i class="bi bi-x-circle-fill"></i></label>
+                                    }
+                                </dd>
+                                <dt class="col-sm-3">
+                                    <span id="">Fiyat</span>
+                                </dt>
+                                <dd class="col-sm-9">
+                                    @Model.Product.Price.ToString("0.00") ₺
+                                </dd>
+                                <dt class="col-sm-3">
+                                    <span id="">Adet</span>
+                                </dt>
+                                <dd class="col-sm-9">
+                                    <input asp-for="Count" class="form-control" id="CountInput" />
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+
+                    </div>
+                    <br />
+                    <div class="col-md-3">
+                        <a asp-action="Index" asp-controller="Home" id="HomeButton"><i class="bi bi-house-door"></i>Ana Sayfa</a>
+                    </div>
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-3">
+                        @if (Model.Product.IsStock)
+                        {
+                            <button type="submit" id="AddCard"><i class="bi bi-cart4"></i>Sepete Ekle</button>
+                        }
+                        else
+                        {
+                            <label id="Label"><i class="bi bi-x-circle"></i> Ürün Tükendi</label>
+                        }
+                    </div>
+                    <div class="col-md-1">
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

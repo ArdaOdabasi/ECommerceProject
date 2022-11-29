@@ -1,0 +1,76 @@
+﻿#AddCard {
+    background-color: #40005b;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: 0;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-right: 12px;
+    padding-bottom: 5px;
+    padding-left: 12px;
+}
+
+#AddCard:hover{
+    background-color: black;
+    color: white;
+}
+
+#HomeButton:link, #HomeButton:visited {
+    display: inline-block;
+    background-color: #1d5306;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-right: 12px;
+    padding-bottom: 5px;
+    padding-left: 12px;
+    margin-bottom: 5px;
+}
+
+#HomeButton:hover, #HomeButton:active {
+    background-color: black;
+    color: white;
+}
+
+#Card {
+    border: 0;
+}
+
+#Label {
+    background-color: #5f0606 ; 
+    font-weight: bold;
+    color: white;
+    padding: 4px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+img {
+    margin-left: 64px;
+    margin-top: 10px;
+}
+
+#CountInput {
+    width: 80px;
+}
+
+.bi-check-circle-fill {
+    color: #1d5306;
+}
+
+.bi-x-circle-fill {
+    color: #900303;
+}
+
+.bi-cart4 {
+    margin-right: 5px;
+}
+
+.bi-house-door {
+    margin-right: 5px;
+}
+
+

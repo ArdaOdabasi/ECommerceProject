@@ -10,5 +10,6 @@ namespace ECommerceProject.Models
         public const string Role_Person = "Person";
         public const string Role_Admin = "Admin";
         public const string Role_User = "User";
+        public const string SessionShoppingCard = "Shopping Card Session";
     }
 }
