@@ -29,6 +29,13 @@ namespace ECommerceProject.Areas.Customer.Controllers
         public IActionResult Index()
         {
             var Products = _applicationDbContext.Products.Where(p => p.IsHome).ToList();
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            if (claim != null)
+            {
+                var count = _applicationDbContext.ShoppingCards.Where(i => i.ApplicationUserId == claim.Value).ToList().Count();
+                HttpContext.Session.SetInt32(RoleOrderStatusSessionOperations.SessionShoppingCard, count);
+            }
             return View(Products);
         }
 

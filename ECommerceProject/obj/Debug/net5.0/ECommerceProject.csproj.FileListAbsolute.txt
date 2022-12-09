@@ -495,3 +495,5 @@ C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\bin\Debug\net5.0\Micr
 C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\bin\Debug\net5.0\SendGrid.dll
 C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\bin\Debug\net5.0\StarkbankEcdsa.dll
 C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Customer\Views\Home\Details.cshtml.g.cs
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Customer\Views\ShoppingCart\Index.cshtml.g.cs
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Customer\Views\ShoppingCart\Success.cshtml.g.cs

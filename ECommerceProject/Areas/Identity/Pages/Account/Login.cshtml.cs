@@ -11,6 +11,9 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using ECommerceProject.Data;
+using Microsoft.AspNetCore.Http;
+using ECommerceProject.Models;
 
 namespace ECommerceProject.Areas.Identity.Pages.Account
 {
@@ -20,14 +23,17 @@ namespace ECommerceProject.Areas.Identity.Pages.Account
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly ApplicationDbContext _applicationDbContext;
 
-        public LoginModel(SignInManager<IdentityUser> signInManager, 
+        public LoginModel(SignInManager<IdentityUser> signInManager,
             ILogger<LoginModel> logger,
-            UserManager<IdentityUser> userManager)
+            UserManager<IdentityUser> userManager,
+            ApplicationDbContext applicationDbContext)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            _applicationDbContext = applicationDbContext;
         }
 
         [BindProperty]
@@ -76,7 +82,7 @@ namespace ECommerceProject.Areas.Identity.Pages.Account
             returnUrl ??= Url.Content("~/");
 
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-        
+
             if (ModelState.IsValid)
             {
                 // This doesn't count login failures towards account lockout
@@ -84,6 +90,9 @@ namespace ECommerceProject.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                    var user = _applicationDbContext.ApplicationUsers.FirstOrDefault(i => i.Email == Input.Email);
+                    int count = _applicationDbContext.ShoppingCards.Where(i => i.ApplicationUserId == user.Id).Count();
+                    HttpContext.Session.SetInt32(RoleOrderStatusSessionOperations.SessionShoppingCard, count);
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }
