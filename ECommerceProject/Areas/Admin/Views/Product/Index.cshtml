@@ -24,7 +24,7 @@
                 </th>
                 <th style="width:80px; text-align:center;">
                     Kategori
-                </th>                
+                </th>
                 <th style="width:60px; text-align:center;">
                     Stok
                 </th>
@@ -37,51 +37,51 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @if (item.Image == null)
-                    {
-                        <img src="~/images/GoruntuYok.jpg" />
-                    }
-                    else
-                    {
-                        <img src="@item.Image" width="100" height="100" />
-                    }
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Category.Name)
-                </td>                
-                <td>
-                    @if (item.IsStock)
-                    {
-                        <label class="LblEvet">Var <i class="bi bi-check-circle-fill"></i></label>
-                    }
-                    else
-                    {
-                        <label class="LblHayır">Yok <i class="bi bi-x-circle-fill"></i></label>
-                    }
-                </td>
-                <td>
-                    @if (item.IsHome)
-                    {
-                        <label class="LblEvet">Gösteriliyor <i class="bi bi-check-circle-fill"></i></label>
-                    }
-                    else
-                    {
-                        <label class="LblHayır">Gösterilmiyor <i class="bi bi-x-circle-fill"></i></label>
-                    }
-                </td>
-                <td>
-                    <div>
-                        <a asp-action="Details" asp-route-id="@item.Id" id="DetailsLink"><i class="bi bi-search"></i></a>
-                        <a asp-action="Edit" asp-route-id="@item.Id" id="EditLink"><i class="bi bi-pencil-square"></i></a>
-                        <a asp-action="Delete" asp-route-id="@item.Id" id="DeleteLink"><i class="bi bi-trash"></i></a>
-                    </div>
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        @if (item.Image == null)
+                        {
+                            <img src="~/images/GoruntuYok.jpg" />
+                        }
+                        else
+                        {
+                            <img src="@item.Image" width="100" height="100" />
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    </td>
+                    <td>
+                        @if (item.IsStock)
+                        {
+                            <label class="LblEvet">Var <i class="bi bi-check-circle-fill"></i></label>
+                        }
+                        else
+                        {
+                            <label class="LblHayır">Yok <i class="bi bi-x-circle-fill"></i></label>
+                        }
+                    </td>
+                    <td>
+                        @if (item.IsHome)
+                        {
+                            <label class="LblEvet">Gösteriliyor <i class="bi bi-check-circle-fill"></i></label>
+                        }
+                        else
+                        {
+                            <label class="LblHayır">Gösterilmiyor <i class="bi bi-x-circle-fill"></i></label>
+                        }
+                    </td>
+                    <td>
+                        <div>
+                            <a asp-action="Details" asp-route-id="@item.Id" id="DetailsLink"><i class="bi bi-search"></i></a>
+                            <a asp-action="Edit" asp-route-id="@item.Id" id="EditLink"><i class="bi bi-pencil-square"></i></a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" id="DeleteLink"><i class="bi bi-trash"></i></a>
+                        </div>
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
@@ -99,5 +99,4 @@
         });
     </script>
 }
-
 

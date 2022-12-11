@@ -497,3 +497,11 @@ C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\bin\Debug\net5.0\Star
 C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Customer\Views\Home\Details.cshtml.g.cs
 C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Customer\Views\ShoppingCart\Index.cshtml.g.cs
 C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Customer\Views\ShoppingCart\Success.cshtml.g.cs
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Customer\Views\ShoppingCart\Summary.cshtml.g.cs
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Customer\Views\ShoppingCart\OrderCompleted.cshtml.g.cs
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\bin\Debug\net5.0\Iyzipay.dll
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\Order\Index.cshtml.g.cs
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\Order\Shipped.cshtml.g.cs
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\Order\Confirmed.cshtml.g.cs
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\Order\Pended.cshtml.g.cs
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\Order\Details.cshtml.g.cs

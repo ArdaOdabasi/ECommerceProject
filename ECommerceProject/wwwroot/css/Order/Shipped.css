@@ -1,0 +1,43 @@
+﻿#EditButton:link, #EditButton:visited {
+    display: inline-block;
+    background-color: #1d5306;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    padding-top: 5px;
+    padding-right: 12px;
+    padding-bottom: 5px;
+    padding-left: 12px;
+    margin-bottom: 5px;
+}
+
+#EditButton:hover, #EditButton:active {
+    background-color: black;
+    color: white;
+}
+
+#DetailButton:link, #DetailButton:visited {
+    display: inline-block;
+    background-color: #1d5306;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    padding-top: 5px;
+    padding-right: 12px;
+    padding-bottom: 5px;
+    padding-left: 12px;
+    margin-bottom: 5px;
+}
+
+#DetailButton:hover, #DetailButton:active {
+    background-color: black;
+    color: white;
+}
+
+td {
+    text-align: center;
+}

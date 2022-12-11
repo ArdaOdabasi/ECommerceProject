@@ -1,0 +1,118 @@
+﻿@model ECommerceProject.Models.OrderDetailsViewModel
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <link href="~/css/Order/Details.css" rel="stylesheet" type="text/css" />
+</head>
+
+<form method="post">
+    <input hidden asp-for="OrderHeader.Id" />
+    <center>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-6">
+                    <dl class="row">
+                        <dt class="col-sm-4">
+                            Ad
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Model.OrderHeader.Name
+                        </dd>
+                        <dt class="col-sm-4">
+                            Soyad
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Model.OrderHeader.Surname
+                        </dd>
+                        <dt class="col-sm-4">
+                            Telefon
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Model.OrderHeader.PhoneNumber
+                        </dd>
+                        <dt class="col-sm-4">
+                            Şehir
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Model.OrderHeader.City
+                        </dd>
+                        <dt class="col-sm-4">
+                            Semt
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Model.OrderHeader.District
+                        </dd>
+                        <dt class="col-sm-4">
+                            Adres
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Model.OrderHeader.Address
+                        </dd>
+                        <dt class="col-sm-4">
+                            Posta Kodu
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Model.OrderHeader.PostCode
+                        </dd>
+                        <dt class="col-sm-4">
+                            Sipariş Tarihi
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Model.OrderHeader.OrderDate.ToShortDateString()
+                        </dd>
+                        <dt class="col-sm-4">
+                            Sipariş Durumu
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Model.OrderHeader.OrderStatus
+                        </dd>
+                    </dl>
+                    <ul class="list-group mb-3">
+                        @foreach (var item in Model.ListOfOrderDetails)
+                        {
+                            <li class="list-group-item d-flex justify-content-between lh-sm">
+                                <div>
+                                    <h6 class="my-0">@item.Product.Title</h6>
+                                    <small class="text-muted">Adet :@item.Count</small>
+                                </div>
+                                <span class="text-muted">@((item.Count*item.Product.Price).ToString("0.00")) ₺</span>
+                            </li>
+                        }
+                        <li class="list-group-item d-flex justify-content-between bg-light">
+                            <div class="text-success">
+                                <h6 class="my-0">Toplam Tutar :</h6>
+                            </div>
+                            <span class="text-success">@(Model.OrderHeader.OrderTotal.ToString("0.00")) ₺</span>
+                        </li>
+                    </ul>
+                    @if (User.IsInRole(RoleOrderStatusSessionOperations.Role_Admin))
+                    {
+                        <br />
+                        @if (Model.OrderHeader.OrderStatus == RoleOrderStatusSessionOperations.Order_Status_Confirmed)
+                        {
+                            <input type="submit" value="Siparişi Kargoya Ver"
+                                   id="SendByCargoButton"
+                                   formaction="/Admin/Order/SendByCargo"
+                                   formmethod="post" />
+                        }
+                        @if (Model.OrderHeader.OrderStatus == RoleOrderStatusSessionOperations.Order_Status_Pending)
+                        {
+                            <input type="submit" value="Siparişi Onayla"
+                                   id="ApprovedButton"
+                                   formaction="/Admin/Order/Approved"
+                                   formmethod="post" />
+                        }
+                    }
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+        </div>
+    </center>
+</form>
+

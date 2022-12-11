@@ -1,5 +1,8 @@
 ﻿using ECommerceProject.Data;
 using ECommerceProject.Models;
+using Iyzipay;
+using Iyzipay.Model;
+using Iyzipay.Request;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -30,6 +33,151 @@ namespace ECommerceProject.Areas.Customer.Controllers
             _applicationDbContext = applicationDbContext;
             _emailSender = emailSender;
             _userManager = userManager;
+        }
+
+        public IActionResult Summary()
+        {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            shoppingCartViewModel = new ShoppingCartViewModel()
+            {
+                OrderHeader = new Models.OrderHeader(),
+                ListOfShoppingCards = _applicationDbContext.ShoppingCards.Where(i => i.ApplicationUserId == claim.Value).Include(i => i.Product)
+            };
+
+            foreach (var item in shoppingCartViewModel.ListOfShoppingCards)
+            {
+                item.Price = item.Product.Price;
+                shoppingCartViewModel.OrderHeader.OrderTotal += (item.Count * item.Product.Price);
+            }
+
+            return View(shoppingCartViewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Summary(ShoppingCartViewModel model)
+        {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            shoppingCartViewModel.ListOfShoppingCards = _applicationDbContext.ShoppingCards.Where(i => i.ApplicationUserId == claim.Value).Include(i => i.Product);
+            shoppingCartViewModel.OrderHeader.OrderStatus = RoleOrderStatusSessionOperations.Order_Status_Pending;
+            shoppingCartViewModel.OrderHeader.ApplicationUserId = claim.Value;
+            shoppingCartViewModel.OrderHeader.OrderDate = DateTime.Now;
+            _applicationDbContext.OrderHeaders.Add(shoppingCartViewModel.OrderHeader);
+            _applicationDbContext.SaveChanges();
+            foreach (var item in shoppingCartViewModel.ListOfShoppingCards)
+            {
+                item.Price = item.Product.Price;
+                OrderDetail orderDetails = new OrderDetail()
+                {
+                    ProductId = item.ProductId,
+                    OrderId = shoppingCartViewModel.OrderHeader.Id,
+                    Price = item.Price,
+                    Count = item.Count
+                };
+                shoppingCartViewModel.OrderHeader.OrderTotal += item.Count * item.Product.Price;
+                model.OrderHeader.OrderTotal += item.Count * item.Product.Price;
+                _applicationDbContext.OrderDetails.Add(orderDetails);
+            }
+            var Payment = PaymentProcess(model);
+            _applicationDbContext.ShoppingCards.RemoveRange(shoppingCartViewModel.ListOfShoppingCards);
+            _applicationDbContext.SaveChanges();
+            HttpContext.Session.SetInt32(RoleOrderStatusSessionOperations.SessionShoppingCard, 0);
+            return RedirectToAction("OrderCompleted");
+        }
+
+        private Payment PaymentProcess(ShoppingCartViewModel model)
+        {
+            Options options = new Options();
+            options.ApiKey = "sandbox-M3HT9Zutm1Uzodt5AXQ4BF6bDV5Pdhbz";
+            options.SecretKey = "sandbox-GpPKSxgWlES6bk0txbUL3nJ6Hwj23VMV";
+            options.BaseUrl = "https://sandbox-api.iyzipay.com";
+
+            CreatePaymentRequest request = new CreatePaymentRequest();
+            request.Locale = Locale.TR.ToString();
+            request.ConversationId = new Random().Next(1111, 9999).ToString();
+            request.Price = model.OrderHeader.OrderTotal.ToString();
+            request.PaidPrice = model.OrderHeader.OrderTotal.ToString();
+            request.Currency = Currency.TRY.ToString();
+            request.Installment = 1;
+            request.BasketId = "B67832";
+            request.PaymentChannel = PaymentChannel.WEB.ToString();
+            request.PaymentGroup = PaymentGroup.PRODUCT.ToString();
+
+            //PaymentCard paymentCard = new PaymentCard();
+            //paymentCard.CardHolderName = "John Doe";
+            //paymentCard.CardNumber = "5528790000000008";
+            //paymentCard.ExpireMonth = "12";
+            //paymentCard.ExpireYear = "2030";
+            //paymentCard.Cvc = "123";
+            //paymentCard.RegisterCard = 0;
+            //request.PaymentCard = paymentCard;
+
+            PaymentCard paymentCard = new PaymentCard();
+            paymentCard.CardHolderName = model.OrderHeader.CardName;
+            paymentCard.CardNumber = model.OrderHeader.CardNumber;
+            paymentCard.ExpireMonth = model.OrderHeader.ExpirationMonth;
+            paymentCard.ExpireYear = model.OrderHeader.ExpirationYear;
+            paymentCard.Cvc = model.OrderHeader.Cvc;
+            paymentCard.RegisterCard = 0;
+            request.PaymentCard = paymentCard;
+
+            Buyer buyer = new Buyer();
+            buyer.Id = model.OrderHeader.Id.ToString();
+            buyer.Name = model.OrderHeader.Name;
+            buyer.Surname = model.OrderHeader.Surname;
+            buyer.GsmNumber = model.OrderHeader.PhoneNumber;
+            buyer.Email = "email@email.com";
+            buyer.IdentityNumber = "74300864791";
+            buyer.LastLoginDate = "2015-10-05 12:43:35";
+            buyer.RegistrationDate = "2013-04-21 15:12:09";
+            buyer.RegistrationAddress = model.OrderHeader.Address;
+            buyer.Ip = "85.34.78.112";
+            buyer.City = model.OrderHeader.City;
+            buyer.Country = "Turkey";
+            buyer.ZipCode = model.OrderHeader.PostCode;
+            request.Buyer = buyer;
+
+            Address shippingAddress = new Address();
+            shippingAddress.ContactName = "Jane Doe";
+            shippingAddress.City = "Istanbul";
+            shippingAddress.Country = "Turkey";
+            shippingAddress.Description = "Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1";
+            shippingAddress.ZipCode = "34742";
+            request.ShippingAddress = shippingAddress;
+
+            Address billingAddress = new Address();
+            billingAddress.ContactName = "Jane Doe";
+            billingAddress.City = "Istanbul";
+            billingAddress.Country = "Turkey";
+            billingAddress.Description = "Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1";
+            billingAddress.ZipCode = "34742";
+            request.BillingAddress = billingAddress;
+
+            List<BasketItem> basketItems = new List<BasketItem>();
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
+            foreach (var item in _applicationDbContext.ShoppingCards.Where(i => i.ApplicationUserId == claim.Value).Include(i => i.Product))
+            {
+                basketItems.Add(new BasketItem()
+                {
+                    Id = item.Id.ToString(),
+                    Name = item.Product.Title,
+                    Category1 = item.Product.CategoryId.ToString(),
+                    ItemType = BasketItemType.PHYSICAL.ToString(),
+                    Price = (item.Price * item.Count).ToString()
+                });
+            }
+            request.BasketItems = basketItems;
+
+            return Payment.Create(request, options);
+        }
+
+        public IActionResult OrderCompleted()
+        {
+            return View();
         }
 
         public IActionResult Index()
