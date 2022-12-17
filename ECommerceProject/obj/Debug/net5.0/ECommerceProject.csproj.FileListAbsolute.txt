@@ -505,3 +505,7 @@ C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razo
 C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\Order\Confirmed.cshtml.g.cs
 C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\Order\Pended.cshtml.g.cs
 C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Admin\Views\Order\Details.cshtml.g.cs
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\_ViewStart.cshtml.g.cs
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Customer\Views\Home\Components\CategoryList\Default.cshtml.g.cs
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Customer\Views\Home\CategoryDetails.cshtml.g.cs
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Customer\Views\Home\Search.cshtml.g.cs

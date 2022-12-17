@@ -29,7 +29,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
                         </li>
-                        
+
                         @if (User.IsInRole(RoleOrderStatusSessionOperations.Role_Admin))
                         {
                             <li class="nav-item dropdown">
@@ -44,14 +44,14 @@
                                 </ul>
                             </li>
                         }
-                        
+
                         else if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-white" asp-area="Admin" asp-controller="Order" asp-action="Index">Siparişler</a>
                             </li>
                         }
-                       
+
                         @if (User.Identity.IsAuthenticated && HttpContextAccessor.HttpContext.Session.GetInt32(RoleOrderStatusSessionOperations.SessionShoppingCard) != null)
                         {
                             <li style="color:white">
@@ -72,6 +72,10 @@
                             </li>
                         }
                     </ul>
+                    <form class="form-inline" action="/Customer/Home/Search" method="post" style="margin-right:0.5rem">
+                        <input name="q" type="text" class="form-control mr-2" placeholder="Arama" />
+                        <button class="btn btn-outline-info mr-2" type="submit"><i class="bi bi-search"></i>Ara</button>
+                    </form>
                     <partial name="_LoginPartial" />
                 </div>
             </div>

@@ -26,6 +26,30 @@ namespace ECommerceProject.Areas.Customer.Controllers
             _applicationDbContext = applicationDbContext;
         }
 
+        public IActionResult Search(string q)
+        {
+            if (!String.IsNullOrEmpty(q))
+            {
+                var Search = _applicationDbContext.Products.Where(i => i.Title.Contains(q));
+                return View(Search);
+            }
+
+            else if (q == null)
+            {
+                var Search = _applicationDbContext.Products.Where(i => i.IsHome);
+                return View(Search);
+            }
+
+            return View();
+        }
+        
+        public IActionResult CategoryDetails(int? id)
+        {
+            var Product = _applicationDbContext.Products.Where(i => i.CategoryId == id).ToList();
+            ViewBag.KategoriId = id;
+            return View(Product);
+        }
+
         public IActionResult Index()
         {
             var Products = _applicationDbContext.Products.Where(p => p.IsHome).ToList();
