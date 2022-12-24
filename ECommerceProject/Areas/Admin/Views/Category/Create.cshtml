@@ -11,23 +11,29 @@
 
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <span id="CategoryNameText">Kategori Adı</span>
-                <input asp-for="Name" class="form-control" placeholder="Kategori Adı" id="CategoryNameInput" />
-                <i class="bi bi-tags-fill"></i>
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <i class="bi bi-plus"></i>
-                <input type="submit" value="Yeni Kategori Ekle" id="AddNewCategory" />
-            </div>
-            <div>
-                <i class="bi bi-reply-fill"></i>
-                <a asp-action="Index" id="BackToCategoryList">Kategori Listesine Dön</a>
-            </div>
-        </form>
+    </div>
+    <div class="col-md-4">
+        <center>
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <span id="CategoryNameText">Kategori Adı</span>
+                    <input asp-for="Name" class="form-control" placeholder="Kategori Adı" id="CategoryNameInput" />
+                    <i class="bi bi-tags-fill"></i>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <i class="bi bi-plus"></i>
+                    <input type="submit" value="Yeni Kategori Ekle" id="AddNewCategory" />
+                </div>
+                <div>
+                    <i class="bi bi-reply-fill"></i>
+                    <a asp-action="Index" id="BackToCategoryList">Kategori Listesine Dön</a>
+                </div>
+            </form>
+        </center>
+    </div>
+    <div class="col-md-4">
     </div>
 </div>
 

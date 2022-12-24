@@ -1,0 +1,22 @@
+﻿#TumUrunlerLink:hover {
+    background-color: #353535;
+    color: white;
+}
+
+#Urunler:hover {
+    background-color: #353535;
+    color: white;
+}
+
+.active {
+    background: #353535 !important;
+}
+
+#dropdownMenuLink {
+    background-color: #353535;
+}
+
+#dropdownMenuLink:link, #dropdownMenuLink:hover, #dropdownMenuLink:visited, #dropdownMenuLink:active {
+    background-color: #353535;
+    color: white;
+}

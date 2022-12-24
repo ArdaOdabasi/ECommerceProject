@@ -35,9 +35,9 @@
     color: white;
 }
 
-#EditLink:link, #EditLink:visited{
+#EditLink:link, #EditLink:visited {
     display: inline-block;
-    background-color: #410665;
+    background-color: #786a27;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -60,7 +60,7 @@
 
 #DeleteLink:link, #DeleteLink:visited{
     display: inline-block;
-    background-color: #e5c309;
+    background-color: #353535;
     color: white;
     text-align: center;
     text-decoration: none;

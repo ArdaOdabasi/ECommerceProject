@@ -1,10 +1,18 @@
 ﻿@page
 @model AccessDeniedModel
 @{
-    ViewData["Title"] = "Access denied";
+    ViewData["Title"] = "Erişim Reddedildi";
 }
 
-<header>
-    <h1 class="text-danger">@ViewData["Title"]</h1>
-    <p class="text-danger">You do not have access to this resource.</p>
-</header>
+<div class="col-md-4">
+</div>
+<center>
+    <div class="col-md-4">
+        <span style="font-weight:bold; padding: 5px; padding-right: 10px; padding-left: 10px; background-color: black; color: white; border-radius: 50px;">@ViewData["Title"]</span>
+        <br />
+        <br />
+        <span style="font-weight:bold; padding: 5px; padding-right: 10px; padding-left: 10px; background-color: black; color: white; border-radius: 50px;">Bu Kaynağa Erişiminiz Yok</span>
+    </div>
+</center>
+<div class="col-md-4">
+</div>

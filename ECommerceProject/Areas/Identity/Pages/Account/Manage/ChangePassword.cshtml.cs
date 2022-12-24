@@ -46,7 +46,7 @@ namespace ECommerceProject.Areas.Identity.Pages.Account.Manage
 
             [DataType(DataType.Password)]
             [Display(Name = "Şifre Tekrar")]
-            [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+            [Compare("NewPassword", ErrorMessage = "Yeni şifre ve onay şifresi uyuşmuyor.")]
             public string ConfirmPassword { get; set; }
         }
 
@@ -91,7 +91,7 @@ namespace ECommerceProject.Areas.Identity.Pages.Account.Manage
             }
 
             await _signInManager.RefreshSignInAsync(user);
-            _logger.LogInformation("User changed their password successfully.");
+            _logger.LogInformation("Kullanıcı parolasını başarıyla değiştirdi.");
             StatusMessage = "Şifreniz değiştirildi.";
 
             return RedirectToPage();

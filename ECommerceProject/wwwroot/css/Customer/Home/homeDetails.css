@@ -1,5 +1,5 @@
 ﻿#AddCard {
-    background-color: #40005b;
+    background-color: #786a27;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -18,7 +18,7 @@
 
 #HomeButton:link, #HomeButton:visited {
     display: inline-block;
-    background-color: #1d5306;
+    background-color: #353535;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -37,6 +37,7 @@
 
 #Card {
     border: 0;
+    background-color: #dcdbdb;
 }
 
 #Label {
@@ -48,13 +49,10 @@
     padding-left: 10px;
 }
 
-img {
-    margin-left: 64px;
-    margin-top: 10px;
-}
 
 #CountInput {
     width: 80px;
+    background-color: #dcdbdb;
 }
 
 .bi-check-circle-fill {
@@ -64,13 +62,4 @@ img {
 .bi-x-circle-fill {
     color: #900303;
 }
-
-.bi-cart4 {
-    margin-right: 5px;
-}
-
-.bi-house-door {
-    margin-right: 5px;
-}
-
 

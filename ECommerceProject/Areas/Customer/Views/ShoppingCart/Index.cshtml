@@ -75,13 +75,14 @@
                                 <td colspan="4" style="text-align:right">
                                 </td>
                                 <td>
-                                    <span id="TotalPrice">Toplam Tutar : @Model.OrderHeader.OrderTotal.ToString("0.00") ₺</span>
+                                    <b>Toplam Tutar :</b> @Model.OrderHeader.OrderTotal.ToString("0.00") ₺
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="row">
                         <div class="col-md-4">
+                            <br />
                             <a asp-area="Customer" asp-controller="Home" asp-action="Index" id="KeepOnShopping"><i class="bi bi-reply-fill"></i>Alışverişe Devam Et</a>
                         </div>
                         <div class="col-md-5">
@@ -110,7 +111,9 @@
     else
     {
         <div>
-            Sepetinizde ürün bulunmamaktadır!
+            <center>
+                <span style="font-weight:bold; padding: 5px; padding-right: 10px; padding-left: 10px; background-color: black; color: white; border-radius: 50px;">Sepetinizde Ürün Bulunmamaktadır</span>
+            </center>
         </div>
     }
 </form>

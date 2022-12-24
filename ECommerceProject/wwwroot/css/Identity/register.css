@@ -1,15 +1,14 @@
-﻿input {
+﻿#AdInput, #SoyadInput, #EmailInput, #TelefonInput, #SehirInput, #SemtInput, #PostaKoduInput, #AdresInput, #SifreInput, #SifreTekrarInput {
     margin-top: 10px;
     box-shadow: 2px 2px;
-    padding-left: 35px;
     color: black;
 }
 
-h4{
-    color: purple;
+h4 {
+    color: #786a27;
 }
 
-.bi-person-plus-fill{
+#KayitOl{
     color: white;
     margin-right: 5px;
 }
@@ -19,6 +18,7 @@ h4{
     position: fixed;
     margin-left: 0px;
     margin-top: -30px;
+    background-color: #dcdbdb;
 }
 
 #GoogleButton {
@@ -26,6 +26,7 @@ h4{
     position: fixed;
     margin-left: 50px;
     margin-top: -30px;
+    background-color: #dcdbdb;
 }
 
 .bi-facebook {
@@ -39,7 +40,7 @@ h4{
 }
 
 #SubmitButton {
-    background-color: purple;
+    background-color: #786a27;
     color: white;
     text-align: center;
     text-decoration: none;

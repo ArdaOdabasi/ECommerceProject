@@ -15,19 +15,18 @@
     color: #333232;
     font-size: 20px;
     position: absolute;
-    margin-left: 10px;
+    margin-left: -140px;
     margin-top: -34px;
 }
 
 #EditCategory {
     width: 200px;
     height: 34px;
-    background-color: #0026ff;
+    background-color: #786a27;
     color: white;
     text-align: center;
     font-weight: bold;
     border-radius: 50px;
-    margin-left: 45px;
     padding-left: 16px;
     padding-right: 0px;
     border: 0px;
@@ -43,19 +42,18 @@
     font-weight: bold;
     font-size: 16px;
     position: absolute;
-    margin-left: 60px;
+    margin-left: 12px;
     margin-top: 6px;
 }
 
-#BackToCategoryList:link, #BackToCategoryList:visited{
+#BackToCategoryList:link, #BackToCategoryList:visited {
     display: inline-block;
-    background-color: #927d07;
+    background-color: #353535;
     color: white;
     text-align: center;
     text-decoration: none;
     font-weight: bold;
     border-radius: 50px;
-    margin-left: 40px;
     padding-top: 5px;
     padding-right: 15px;
     padding-bottom: 5px;
@@ -72,6 +70,6 @@
     font-weight: bold;
     font-size: 15px;
     position: absolute;
-    margin-left: 53px;
+    margin-left: 10px;
     margin-top: 5px;
 }

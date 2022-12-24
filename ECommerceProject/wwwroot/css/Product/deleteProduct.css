@@ -4,9 +4,9 @@
 }
 
 #DeleteProduct {
-    width: 170px;
+    width: 160px;
     height: 34px;
-    background-color: #b57e1c;
+    background-color: #786a27;
     color: white;
     text-align: center;
     font-weight: bold;
@@ -25,19 +25,18 @@
     font-weight: bold;
     font-size: 16px;
     position: absolute;
-    margin-left: -155px;
+    margin-left: 11px;
     margin-top: 6px;
 }
 
 #BackToProductList:link, #BackToProductList:visited {
     display: inline-block;
-    background-color: #3f0a8d;
+    background-color: #353535;
     color: white;
     text-align: center;
     text-decoration: none;
     font-weight: bold;
     border-radius: 50px;
-    margin-left: 5px;
     padding-top: 5px;
     padding-right: 15px;
     padding-bottom: 5px;
@@ -54,6 +53,6 @@
     font-weight: bold;
     font-size: 15px;
     position: absolute;
-    margin-left: -175px;
+    margin-left: 10px;
     margin-top: 5px;
 }

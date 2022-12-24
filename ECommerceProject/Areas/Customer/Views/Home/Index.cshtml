@@ -13,15 +13,15 @@
         @foreach (var item in Model)
         {
         <div class="col-md-3">
-            <div class="card" id="ProductsCard">
+            <div class="card" id="ProductsCard" style="background-color: #dcdbdb;">
                 <img src="@item.Image" class="card-img-top" alt="...">
                 <div class="card-header">
-                    @item.Title
+                    <span style="color:#353535;">@item.Title</span>
                 </div>
                 <div class="card-footer">
                     <a asp-action="Details" asp-controller="Home" asp-route-id="@item.Id" id="DetailButton">Detay</a>
                     <i class="bi bi-search"></i>
-                    <label><b>@item.Price.ToString("0.00")₺</b></label>
+                    <label style="color:#353535;"><b>@item.Price.ToString("0.00")₺</b></label>
                 </div>
             </div>
         </div>

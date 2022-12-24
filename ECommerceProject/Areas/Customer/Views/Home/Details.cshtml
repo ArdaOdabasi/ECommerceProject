@@ -19,7 +19,9 @@
 
                     </div>
                     <div class="col-md-3">
-                        <img src="@Model.Product.Image" class="img-fluid rounded-start" alt="..." style="height: 200px">
+                        <center>
+                            <img src="@Model.Product.Image" class="img-fluid rounded-start" alt="..." style="height: 200px">
+                        </center>
                     </div>
                     <div class="col-md-5">
                         <div class="card-body">
@@ -69,7 +71,7 @@
                     </div>
                     <br />
                     <div class="col-md-3">
-                        <a asp-action="Index" asp-controller="Home" id="HomeButton"><i class="bi bi-house-door"></i>Ana Sayfa</a>
+                        <a asp-action="Index" asp-controller="Home" id="HomeButton"><i class="bi bi-house-door"></i>&nbsp;Ana Sayfa</a>
                     </div>
                     <div class="col-md-2">
 
@@ -77,11 +79,11 @@
                     <div class="col-md-3">
                         @if (Model.Product.IsStock)
                         {
-                            <button type="submit" id="AddCard"><i class="bi bi-cart4"></i>Sepete Ekle</button>
+                            <button type="submit" id="AddCard"><i class="bi bi-cart4"></i>&nbsp;Sepete Ekle</button>
                         }
                         else
                         {
-                            <label id="Label"><i class="bi bi-x-circle"></i> Ürün Tükendi</label>
+                            <label id="Label"><i class="bi bi-x-circle"></i>&nbsp;Ürün Tükendi</label>
                         }
                     </div>
                     <div class="col-md-1">

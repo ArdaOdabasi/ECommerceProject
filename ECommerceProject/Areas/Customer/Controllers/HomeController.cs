@@ -30,7 +30,7 @@ namespace ECommerceProject.Areas.Customer.Controllers
         {
             if (!String.IsNullOrEmpty(q))
             {
-                var Search = _applicationDbContext.Products.Where(i => i.Title.Contains(q));
+                var Search = _applicationDbContext.Products.Where(i => i.Title.Contains(q) && i.IsHome);
                 return View(Search);
             }
 
@@ -112,12 +112,7 @@ namespace ECommerceProject.Areas.Customer.Controllers
 
             return View(Scard);
         }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
+    
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

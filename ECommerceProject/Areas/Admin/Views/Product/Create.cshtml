@@ -11,54 +11,57 @@
 
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <span id="ProductTitleText">Başlık</span>
-                <input asp-for="Title" class="form-control" placeholder="Başlık" id="ProductTitleInput" />
-                <i class="bi bi-bag-fill"></i>
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <span id="ProductDescriptionText">Açıklama</span>
-                <input asp-for="Description" class="form-control" placeholder="Açıklama" id="ProductDescriptionInput" />
-                <i class="bi bi-pencil-square"></i>
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <span id="ProductPriceText">Fiyat</span>
-                <input asp-for="Price" class="form-control" placeholder="Fiyat" id="ProductPriceInput" />
-                <i class="bi bi-tags"></i>
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <span id="ProductImageText">Resim</span>
-                <input asp-for="Image" class="form-control" type="file" id="ProductImageInput"/>
-                <span asp-validation-for="Image" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsHome" /> <span id="ProductHomeText">Ana Sayfa</span>
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsStock" /> <span id="ProductStockText">Stok</span>
-                </label>
-            </div>
-            <div class="form-group">
-                <span id="ProductCategoryText">Kategori</span>
-                <select asp-for="CategoryId" class ="form-control" asp-items="ViewBag.CategoryId" id="ProductCategorySelect"></select>
-            </div>
-            <div class="form-group">
-                <i class="bi bi-plus"></i>
-                <input type="submit" value="Yeni Ürün Ekle" id="AddNewProduct" />               
-                <div>
-                    <i class="bi bi-reply-fill"></i>
-                    <a asp-action="Index" id="BackToProductList"><span style="color:white;">Ürün Listesine Dön</span></a>
+    </div>
+    <div class="col-md-4">
+        <center>
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <span id="ProductTitleText">Başlık</span>
+                    <input asp-for="Title" class="form-control" placeholder="Başlık" id="ProductTitleInput" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
                 </div>
-            </div>
-        </form>
+                <div class="form-group">
+                    <span id="ProductDescriptionText">Açıklama</span>
+                    <input asp-for="Description" class="form-control" placeholder="Açıklama" id="ProductDescriptionInput" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <span id="ProductPriceText">Fiyat</span>
+                    <input asp-for="Price" class="form-control" placeholder="Fiyat" id="ProductPriceInput" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <span id="ProductImageText">Resim</span>
+                    <input asp-for="Image" class="form-control" type="file" id="ProductImageInput" />
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="IsHome" /> <span id="ProductHomeText">Ana Sayfa</span>
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="IsStock" /> <span id="ProductStockText">Stok</span>
+                    </label>
+                </div>
+                <div class="form-group" id="CategoryFormGroup">
+                    <span id="ProductCategoryText">Kategori</span>
+                    <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId" id="ProductCategorySelect"></select>
+                </div>
+                <div class="form-group">
+                    <i class="bi bi-plus"></i>
+                    <input type="submit" value="Yeni Ürün Ekle" id="AddNewProduct" />
+                    <div>
+                        <i class="bi bi-reply-fill"></i>
+                        <a asp-action="Index" id="BackToProductList"><span style="color:white;">Ürün Listesine Dön</span></a>
+                    </div>
+                </div>
+            </form>
+        </center>
+    </div>
+    <div class="col-md-4">
     </div>
 </div>
 

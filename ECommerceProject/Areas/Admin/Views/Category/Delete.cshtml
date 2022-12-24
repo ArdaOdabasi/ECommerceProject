@@ -9,22 +9,36 @@
     <link href="~/css/Category/deleteCategory.css" rel="stylesheet" type="text/css" />
 </head>
 
-<p id="Text">Bu kategoriyi silmek istediğinizden emin misiniz?</p>
-<div>
-    <dl class="row">
-        <dt class="col-sm-2">
-            <span id="CategoryNameText">Kategori Adı</span>
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-    </dl>
+<div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6">
+        <center>
+            <p id="Text">Bu kategoriyi silmek istediğinizden emin misiniz?</p>
+            <div class="row">
+                <dt class="col-sm-3">
 
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Kategoriyi Sil" id="DeleteCategory" />
-        <i class="bi bi-trash"></i>
-        <a asp-action="Index" id="BackToCategoryList">Kategori Listesine Dön</a>
-        <i class="bi bi-reply-fill"></i>
-    </form>
+                </dt>
+                <dt class="col-sm-3">
+                    <span id="CategoryNameText">Kategori Adı</span>
+                </dt>
+                <dd class="col-sm-3">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt class="col-sm-3">
+
+                </dt>
+            </div>
+            <br />
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <input type="submit" value="Kategoriyi Sil" id="DeleteCategory" />
+                <i class="bi bi-trash"></i>
+                <i class="bi bi-reply-fill"></i>
+                <a asp-action="Index" id="BackToCategoryList">Kategori Listesine Dön</a>
+            </form>
+        </center>
+    </div>
+    <div class="col-md-3">
+    </div>
 </div>

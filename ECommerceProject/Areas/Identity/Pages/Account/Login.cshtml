@@ -20,31 +20,31 @@
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
                     Email
-                    <input asp-for="Input.Email" class="form-control" placeholder="Email" />
+                    <input asp-for="Input.Email" class="form-control" placeholder="Email" id="EmailInput"/>
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     Şifre
-                    <input asp-for="Input.Password" class="form-control" placeholder="Şifre" />
+                    <input asp-for="Input.Password" class="form-control" placeholder="Şifre" id="SifreInput"/>
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <div class="checkbox">
                         <label asp-for="Input.RememberMe">
                             <input asp-for="Input.RememberMe" style="box-shadow: 0px 0px 0px 0px;" />
-                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                            Beni Hatırla
                         </label>
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="form-control" id="SubmitButton"><i class="bi bi-box-arrow-in-right"></i>Oturum Aç</button>
+                    <button type="submit" class="form-control" id="SubmitButton"><i class="bi bi-box-arrow-in-right" id="OturumAcIkon"></i>Oturum Aç</button>
                 </div>
                 <div class="form-group">
                     <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Şifremi Unuttum</a>
+                        <a id="forgot-password" asp-page="./ForgotPassword" style="color: #786a27 ">Şifremi Unuttum</a>
                     </p>
                     <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Kayıt Ol</a>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" style="color: #786a27 ">Kayıt Ol</a>
                     </p>
                 </div>
             </form>

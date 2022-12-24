@@ -1,0 +1,28 @@
+﻿#Title {
+    color: white;
+    font-weight: 500;
+    text-shadow: 3px 3px 2px #666
+}
+
+#Input {
+    width: 200px;
+    border-radius: 50px;
+}
+
+#SearchButton {
+    background-color: white;
+    position: absolute;
+    margin-left: 165px;
+    margin-top: -1px;
+    border: 0px;
+}
+
+.border-top{
+    background-color: #353535;
+    color: white;
+}
+
+.navbar {
+    background-color: #353535;
+    color: white;
+}

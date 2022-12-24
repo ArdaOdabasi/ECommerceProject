@@ -60,11 +60,11 @@
                             <td>
                                 @if (User.IsInRole(RoleOrderStatusSessionOperations.Role_Admin))
                                 {
-                                    <a asp-action="Details" asp-route-id="@item.Id" id="EditButton"><i class="bi bi-pencil-square"></i> Düzenle</a>
+                                    <a asp-action="Details" asp-route-id="@item.Id" id="EditButton" style="background-color: #786a27;"><i class="bi bi-pencil-square"></i> Düzenle</a>
                                 }
                                 else
                                 {
-                                    <a asp-action="Details" asp-route-id="@item.Id" id="DetailButton"><i class="bi bi-search"></i> Detay</a>
+                                    <a asp-action="Details" asp-route-id="@item.Id" id="DetailButton" style="background-color: #786a27;"><i class="bi bi-search"></i> Detay</a>
                                 }
                             </td>
                         </tr>

@@ -11,7 +11,7 @@
 #DeleteUser {
     width: 170px;
     height: 34px;
-    background-color: #333232;
+    background-color: #786a27;
     color: white;
     text-align: center;
     font-weight: bold;
@@ -30,13 +30,13 @@
     font-weight: bold;
     font-size: 16px;
     position: absolute;
-    margin-left: -155px;
+    margin-left: 15px;
     margin-top: 6px;
 }
 
 #BackToUserList:link, #BackToUserList:visited {
     display: inline-block;
-    background-color: #85108a;
+    background-color: #353535;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -59,6 +59,6 @@
     font-weight: bold;
     font-size: 15px;
     position: absolute;
-    margin-left: -201px;
+    margin-left: 15px;
     margin-top: 5px;
 }

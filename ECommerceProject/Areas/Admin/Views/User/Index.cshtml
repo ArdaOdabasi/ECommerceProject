@@ -8,56 +8,60 @@
     <link href="~/css/User/indexUser.css" rel="stylesheet" type="text/css" />
 </head>
 
-<div class="row">
-    <div class="col-md-12">
+<div class="container">   
+    <center>
         <span id="UserListTitle">Kullanıcı Listesi</span>
-    <div>
-    <div>
-        <a asp-area="Identity" asp-page="/Account/Register" id="AddUser"><i class="bi bi-person-plus-fill"></i>Kullanıcı Ekle</a>
-    </div>
+        <div>
+            <div>
+                <a asp-area="Identity" asp-page="/Account/Register" id="AddUser"><i class="bi bi-person-plus-fill"></i>Kullanıcı Ekle</a>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <table class="table table-striped table-bordered table-hover" id="myTable">
+                <thead>
+                    <tr>
+                        <th style="text-align: center">
+                            Adı
+                        </th>
+                        <th style="text-align: center">
+                            Soyadı
+                        </th>
+                        <th style="text-align: center">
+                            E-Mail Adresi
+                        </th>
+                        <th style="text-align: center">
+                            Rolü
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <span id="CategoryNameText">@Html.DisplayFor(modelItem => item.Name)</span>
+                            </td>
+                            <td>
+                                <span id="CategoryNameText">@Html.DisplayFor(modelItem => item.Surname)</span>
+                            </td>
+                            <td>
+                                <span id="CategoryNameText">@Html.DisplayFor(modelItem => item.Email)</span>
+                            </td>
+                            <td>
+                                <span id="CategoryNameText">@Html.DisplayFor(modelItem => item.Role)</span>
+                            </td>
+                            <td>
+                                <a asp-action="Delete" asp-route-id="@item.Id.ToString()" id="DeleteLink"><i class="bi bi-trash"></i> Sil</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </center>
 </div>
 
-<table class="table table-striped table-bordered" id="myTable">
-    <thead>
-        <tr>
-            <th style="text-align:center">
-                Kullanıcının Adı
-            </th>
-            <th style="text-align:center">
-                Kullanıcının Soyadı
-            </th>
-            <th style="text-align:center">
-                Kullanıcının E-Mail Adresi
-            </th>
-            <th style="text-align:center">
-                Kullanıcının Rolü
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    <span id="CategoryNameText">@Html.DisplayFor(modelItem => item.Name)</span>
-                </td>
-                <td>
-                    <span id="CategoryNameText">@Html.DisplayFor(modelItem => item.Surname)</span>
-                </td>
-                <td>
-                    <span id="CategoryNameText">@Html.DisplayFor(modelItem => item.Email)</span>
-                </td>
-                <td>
-                    <span id="CategoryNameText">@Html.DisplayFor(modelItem => item.Role)</span>
-                </td>
-                <td>
-                    <a asp-action="Delete" asp-route-id="@item.Id.ToString()" id="DeleteLink"><i class="bi bi-trash"></i> Sil</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
 @section Scripts
 {
     <script type="text/javascript">

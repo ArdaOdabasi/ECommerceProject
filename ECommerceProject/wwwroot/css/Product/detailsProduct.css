@@ -1,6 +1,6 @@
 ﻿#BackToProductList:link, #BackToCategoryList:visited {
     display: inline-block;
-    background-color: #690631;
+    background-color: #353535;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -38,7 +38,7 @@
 
 #EditProduct {
     display: inline-block;
-    background-color: #8a4411;
+    background-color: #786a27;
     color: white;
     text-align: center;
     text-decoration: none;

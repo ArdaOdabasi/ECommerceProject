@@ -1,0 +1,19 @@
+﻿#KategoriDropDown:hover, #KategoriDropDown:after {
+    background-color: black;
+    color: white;
+}
+
+#UrunDropDown:hover, #UrunDropDown:after {
+    background-color: black;
+    color: white;
+}
+
+#KullaniciDropDown:hover, #KullaniciDropDown:after {
+    background-color: black;
+    color: white;
+}
+
+#SiparisDropDown:hover, #SiparisDropDown:after {
+    background-color: black;
+    color: white;
+}

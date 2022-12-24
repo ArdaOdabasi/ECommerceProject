@@ -9,23 +9,35 @@
     <link href="~/css/User/deleteUser.css" rel="stylesheet" type="text/css" />
 </head>
 
-<p id="Text">Bu kullanıcıyı silmek istediğinizden emin misiniz?</p>
-<div>
-    <dl class="row">
-        <dt class="col-sm-2">
-            <span id="UserEmailText">Email</span>
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-    </dl>
+<div class="col-md-2">
+</div>
+<center>
+    <div class="col-md-8">
+        <p id="Text">Bu kullanıcıyı silmek istediğinizden emin misiniz?</p>
+        <div>
+            <dl class="row">
+                <dt class="col-sm-3">
+                </dt>
+                <dt class="col-sm-2">
+                    <span id="UserEmailText">Email</span>
+                </dt>
+                <dd class="col-sm-5">
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+                <dt class="col-sm-2">
+                </dt>
+            </dl>
 
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Kullanıcıyı Sil" id="DeleteUser" />
-        <i class="bi bi-trash"></i>
-        <a asp-action="Index" id="BackToUserList">Kullanıcı Listesine Dön</a>
-        <i class="bi bi-reply-fill"></i>
-    </form>
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <i class="bi bi-trash"></i>
+                <input type="submit" value="Kullanıcıyı Sil" id="DeleteUser" />
+                <i class="bi bi-reply-fill"></i>
+                <a asp-action="Index" id="BackToUserList">Kullanıcı Listesine Dön</a>
+            </form>
+        </div>
+    </div>
+</center>
+<div class="col-md-2">
 </div>
 
