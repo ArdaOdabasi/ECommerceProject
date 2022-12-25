@@ -55,8 +55,8 @@
                                                     <input type="text" style="max-width:45px;" class="form-control" value="@item.Count" />
                                                 </div>
                                                 <div id="Buttons">
-                                                    <button asp-action="Decrease" asp-route-cartId="@item.Id" id="DecreaseButton"><i class="bi bi-dash-lg"></i></button>
                                                     <button asp-action="Increase" asp-route-cartId="@item.Id" id="IncreaseButton"><i class="bi bi-plus-lg"></i></button>
+                                                    <button asp-action="Decrease" asp-route-cartId="@item.Id" id="DecreaseButton"><i class="bi bi-dash-lg"></i></button>                                                    
                                                     <button asp-action="Delete" asp-route-cartId="@item.Id" id="DeleteButton"><i class="bi bi-trash"></i></button>
                                                 </div>
                                             </div>
@@ -92,7 +92,7 @@
                             @if (!Model.OrderHeader.ApplicationUser.EmailConfirmed)
                             {
                                 <div>
-                                    <button type="submit" id="ConfirmEmail"><i class="bi bi-check-circle-fill"></i>Lütfen Email Onaylamak için tıklayınız</button>
+                                    <button type="submit" id="ConfirmEmail"><i class="bi bi-check-circle-fill"></i>Lütfen Email Onaylamak İçin Tıklayınız</button>
                                 </div>
                             }
                             else

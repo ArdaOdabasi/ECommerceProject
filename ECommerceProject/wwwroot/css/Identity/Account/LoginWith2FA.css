@@ -1,4 +1,4 @@
-﻿#change-email-button {
+﻿#Login {
     background-color: #786a27;
     color: white;
     text-align: center;
@@ -11,7 +11,7 @@
     padding-left: 12px;
 }
 
-#change-email-button:hover {
+#Login:hover {
     background-color: black;
     color: white;
 }

@@ -1,24 +1,27 @@
 ﻿@page
 @model ResetAuthenticatorModel
 @{
-    ViewData["Title"] = "Reset authenticator key";
+    ViewData["Title"] = "Doğrulayıcı Anahtarını Sıfırla";
     ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
 }
+
+<head>
+    <link href="~/css/Identity/Account/Manage/ResetAuthenticator.css" rel="stylesheet" type="text/css" />
+</head>
 
 <partial name="_StatusMessage" for="StatusMessage" />
 <h4>@ViewData["Title"]</h4>
 <div class="alert alert-warning" role="alert">
     <p>
         <span class="glyphicon glyphicon-warning-sign"></span>
-        <strong>If you reset your authenticator key your authenticator app will not work until you reconfigure it.</strong>
+        <strong>Doğrulayıcı anahtarınızı sıfırlarsanız, doğrulayıcı uygulamanız siz yeniden yapılandırana kadar çalışmaz.</strong>
     </p>
     <p>
-        This process disables 2FA until you verify your authenticator app.
-        If you do not complete your authenticator app configuration you may lose access to your account.
+        Bu işlem, siz kimlik doğrulayıcı uygulamanızı doğrulayana kadar 2FA'yı devre dışı bırakır.Doğrulayıcı uygulama yapılandırmanızı tamamlamazsanız, hesabınıza erişiminizi kaybedebilirsiniz.
     </p>
 </div>
 <div>
     <form id="reset-authenticator-form" method="post" class="form-group">
-        <button id="reset-authenticator-button" class="btn btn-danger" type="submit">Reset authenticator key</button>
+        <button id="reset-authenticator-button" type="submit">Doğrulayıcı Anahtarını Sıfırla</button>
     </form>
 </div>

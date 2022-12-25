@@ -104,11 +104,11 @@ namespace ECommerceProject.Areas.Identity.Pages.Account.Manage
                     "Confirm your email",
                     $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
-                StatusMessage = "Confirmation link to change email sent. Please check your email.";
+                StatusMessage = "Gönderilen e-postayı değiştirmek için onay bağlantısı.Lütfen emailinizi kontrol edin.";
                 return RedirectToPage();
             }
 
-            StatusMessage = "Your email is unchanged.";
+            StatusMessage = "E-postanız değişmedi.";
             return RedirectToPage();
         }
 
@@ -140,7 +140,7 @@ namespace ECommerceProject.Areas.Identity.Pages.Account.Manage
                 "Confirm your email",
                 $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
-            StatusMessage = "Verification email sent. Please check your email.";
+            StatusMessage = "Doğrulama e-postası gönderildi.Lütfen emailinizi kontrol edin.";
             return RedirectToPage();
         }
     }

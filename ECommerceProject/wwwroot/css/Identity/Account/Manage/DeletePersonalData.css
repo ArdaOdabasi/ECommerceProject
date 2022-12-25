@@ -1,4 +1,4 @@
-﻿#change-email-button {
+﻿#DeleteData {
     background-color: #786a27;
     color: white;
     text-align: center;
@@ -11,7 +11,19 @@
     padding-left: 12px;
 }
 
-#change-email-button:hover {
+#DeleteData:hover {
     background-color: black;
     color: white;
+}
+
+#Input {
+    width: 200px;
+    margin-top: 5px;
+}
+
+.alert {
+    width: 630px;
+    text-align: center;
+    height: 50px;
+    margin-top: 15px;
 }

@@ -71,7 +71,7 @@
 }
 
 #DecreaseButton {
-    background-color: #1d5306;
+    background-color: #900303;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -87,7 +87,7 @@
 }
 
 #IncreaseButton {
-    background-color: #ff0000;
+    background-color: #1d5306;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -103,7 +103,7 @@
 }
 
 #DeleteButton {
-    background-color: #808080;
+    background-color: #353535;
     color: white;
     text-align: center;
     text-decoration: none;
