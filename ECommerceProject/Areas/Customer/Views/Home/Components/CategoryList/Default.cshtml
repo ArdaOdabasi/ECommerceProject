@@ -3,18 +3,33 @@
     <link href="~/css/Customer/Home/Default.css" rel="stylesheet" type="text/css" />
 </head>
 
-<div class="col-md-2">
-    <div class="dropdown show">
-        <a class="btn btn-dark dropdown-toggle" style="text-align:center;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Kategoriler
-        </a>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a asp-action="Index" asp-controller="Home" class="dropdown-item @(ViewBag.KategoriId==null?"active":"")" aria-current="true" id="TumUrunlerLink">
+@*<div class="col-md-2">
+        <div class="dropdown show">
+            <a class="btn btn-dark dropdown-toggle" style="text-align:center;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Kategoriler
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a asp-action="Index" asp-controller="Home" class="dropdown-item @(ViewBag.KategoriId==null?"active":"")" aria-current="true" id="TumUrunlerLink">
+                    Tüm Ürünler
+                </a>
+                @foreach (var item in Model)
+                {
+                    <a asp-action="CategoryDetails" class="dropdown-item @(ViewBag.KategoriId?.ToString()==item.Id.ToString()?"active":"")" asp-route-id="@item.Id" id="Urunler">@item.Name</a>
+                }
+            </div>
+        </div>
+    </div>*@
+
+<div class="col-md-3">
+    <div class="card">
+        <div class="list-group" style="text-align: center; font-weight: 500; letter-spacing: 2px;">
+            <a asp-action="Index" asp-controller="Home" class="list-group-item list-group-item-action @(ViewBag.KategoriId==null?"active":"")" aria-current="true">
                 Tüm Ürünler
             </a>
+
             @foreach (var item in Model)
             {
-                <a asp-action="CategoryDetails" class="dropdown-item @(ViewBag.KategoriId?.ToString()==item.Id.ToString()?"active":"")" asp-route-id="@item.Id" id="Urunler">@item.Name</a>
+                <a asp-action="CategoryDetails" class="list-group-item list-group-item-action @(ViewBag.KategoriId?.ToString()==item.Id.ToString()?"active":"")" asp-route-id="@item.Id">@item.Name</a>
             }
         </div>
     </div>
