@@ -16,10 +16,6 @@ namespace ECommerceProject.Email
             var client = new SendGridClient(Options.SendGridKey);
             var message = new SendGridMessage()
             {
-                From = new EmailAddress("ardaodabasi@hotmail.com", "E-Ticaret Web Sitesi"),
-                Subject = subject,
-                PlainTextContent = htmlMessage,
-                HtmlContent = htmlMessage
             };
             message.AddTo(new EmailAddress(email));
             try

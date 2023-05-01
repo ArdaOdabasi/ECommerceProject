@@ -6,7 +6,6 @@ C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\bin\Debug\net5.0\ECom
 C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\bin\Debug\net5.0\ECommerceProject.runtimeconfig.json
 C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\bin\Debug\net5.0\ECommerceProject.runtimeconfig.dev.json
 C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\bin\Debug\net5.0\ECommerceProject.dll
-C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\bin\Debug\net5.0\ref\ECommerceProject.dll
 C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\bin\Debug\net5.0\ECommerceProject.pdb
 C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Antiforgery.dll
 C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Authentication.Abstractions.dll
@@ -509,3 +508,9 @@ C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razo
 C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Customer\Views\Home\Components\CategoryList\Default.cshtml.g.cs
 C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Customer\Views\Home\CategoryDetails.cshtml.g.cs
 C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\Razor\Areas\Customer\Views\Home\Search.cshtml.g.cs
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\staticwebassets\ECommerceProject.StaticWebAssets.Pack.cache
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\staticwebassets\msbuild.ECommerceProject.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\staticwebassets\msbuild.build.ECommerceProject.props
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.ECommerceProject.props
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.ECommerceProject.props
+C:\Users\pi\source\repos\ECommerceProject\ECommerceProject\obj\Debug\net5.0\refint\ECommerceProject.dll
