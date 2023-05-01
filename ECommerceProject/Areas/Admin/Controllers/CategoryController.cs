@@ -146,6 +146,7 @@ namespace ECommerceProject.Areas.Admin.Controllers
             _context.Categories.Remove(category);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+
         }
 
         private bool CategoryExists(int id)
